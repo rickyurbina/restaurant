@@ -1,6 +1,6 @@
 <!-- Contenido  -->
 <?php
-    if ($permisos == 'administrador'){
+    if ($permisos == 'admin'){
         if($pagina=="inicioAdmin" ||
         $pagina == "salidas" || 
         $pagina == "nvaSalidas" || 
@@ -56,7 +56,7 @@
         }
 
     }
-    else if ($permisos == 'usuario'){
+    else if ($permisos == 'cashier'){
         if($pagina=="inicioCaja" ||
             $pagina == "salidas" || 
             $pagina == "salidasAdd" || 

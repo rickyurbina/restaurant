@@ -1,22 +1,22 @@
 <?php
-// session_start();
-// if (isset($_SESSION["nombre"])){
-// 	$permisos = $_SESSION["permisos"];
-// 	if ($permisos == 'administrador') $linkInicio = 'inicioAdmin';
-// 	else if ($permisos == 'usuario') $linkInicio = 'inicioCaja';
-// }
-// else{
-// 	echo '<script>window.location="../";</script>';
+session_start();
+if (isset($_SESSION["nombre"])){
+	$permisos = $_SESSION["permisos"];
+	if ($permisos == 'admin') $linkInicio = 'inicioAdmin';
+	else if ($permisos == 'cashier') $linkInicio = 'inicioCaja';
+}
+else{
+	echo '<script>window.location="../";</script>';
 	
-// }
+}
 
-// if (isset($_GET["page"])){
-// 	$pagina = $_GET["page"];    
-// }
-// else{
-// 	$pagina = "";
-// }
-// setlocale(LC_ALL,"es_ES");    
+if (isset($_GET["page"])){
+	$pagina = $_GET["page"];    
+}
+else{
+	$pagina = "";
+}
+setlocale(LC_ALL,"es_ES");    
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -128,14 +128,15 @@
 								</div>
 								<div class="user-info">
 									<h2><?php echo $_SESSION["nombre"]; ?></h2>
+									<h6><?php echo $_SESSION["permisos"]; ?></h6>
 									
 								</div>
 							</div>
 						</div>
 						
 						<?php 
-							if( $permisos == 'administrador' )	include "menuAdmin.php"; 
-							else if ( $permisos == 'usuario') include "menu.php";
+							if( $permisos == 'admin' )	include "menuAdmin.php"; 
+							else if ( $permisos == 'cashier') include "menu.php";
 						?>
 					</aside>
 				</div>
